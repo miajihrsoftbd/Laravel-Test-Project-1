@@ -43,6 +43,30 @@
                 class="form-control"
                 accept="image/*">
         </div>
+        <br><br>
+
+        <!-- Gender -->
+        <div class="mb-3">
+            <label class="form-label">Gender</label>
+
+            <select name="gender" class="form-select">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <br>    
+        <!-- Status -->
+        <div class="mb-3">
+            <label class="form-label">Status</label>
+
+            <select name="status" class="form-select">
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+            </select>
+        </div>
 
         <br><br>
         <button type="submit">Save Student</button>

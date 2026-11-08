@@ -52,6 +52,8 @@ class StudentController extends Controller
             'photo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'phone' => 'nullable',
             'address' => 'nullable',
+            'gender' => 'nullable|in:Male,Female,Other',
+            'status' => 'required|in:Active,Inactive',
         ]);
 
        

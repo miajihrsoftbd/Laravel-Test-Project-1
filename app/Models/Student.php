@@ -12,5 +12,7 @@ class Student extends Model
         'phone',
         'address',
         'photo',
+        'gender',
+        'status',
     ];
 }
