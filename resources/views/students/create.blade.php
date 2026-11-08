@@ -13,7 +13,9 @@
         @endforeach
     @endif
 
-    <form action="{{ route('students.store') }}" method="POST">
+    <form action="{{ route('students.store') }}"
+      method="POST"
+      enctype="multipart/form-data">
 
         @csrf
 
@@ -33,6 +35,16 @@
         <input type="text" name="address">
         <br><br>
 
+        <div class="mb-3">
+            <label class="form-label">Student Photo</label>
+
+            <input type="file"
+                name="photo"
+                class="form-control"
+                accept="image/*">
+        </div>
+
+        <br><br>
         <button type="submit">Save Student</button>
 
     </form>
