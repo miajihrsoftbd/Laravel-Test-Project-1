@@ -39,6 +39,43 @@
                value="{{ old('address', $student->address) }}">
         <br><br>
 
+        <div class="mb-3">
+            <label class="form-label">Gender</label>
+
+            <select name="gender" class="form-select">
+                <option value="Male"
+                    {{ $student->gender == 'Male' ? 'selected' : '' }}>
+                    Male
+                </option>
+
+                <option value="Female"
+                    {{ $student->gender == 'Female' ? 'selected' : '' }}>
+                    Female
+                </option>
+
+                <option value="Other"
+                    {{ $student->gender == 'Other' ? 'selected' : '' }}>
+                    Other
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Status</label>
+
+            <select name="status" class="form-select">
+                <option value="Active"
+                    {{ $student->status == 'Active' ? 'selected' : '' }}>
+                    Active
+                </option>
+
+                <option value="Inactive"
+                    {{ $student->status == 'Inactive' ? 'selected' : '' }}>
+                    Inactive
+                </option>
+            </select>
+        </div>
+
         <button type="submit">Update Student</button>
 
     </form>

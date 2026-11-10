@@ -2,7 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+
 Route::resource('students', StudentController::class);
+
+
+Route::get('/dashboard', [StudentController::class, 'dashboard'])
+    ->name('dashboard');
 
 Route::get('/', [StudentController::class, 'index'])
     ->name('students.index');

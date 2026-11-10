@@ -3,86 +3,68 @@
 
 @section('content')
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
-            <h2 class="fw-bold">Dashboard</h2>
-            <p class="text-muted">Welcome to Student Management System</p>
-        </div>
+ 
 
-        <a href="{{ route('students.create') }}"
-           class="btn btn-primary">
-            + Add Student
-        </a>
-    </div>
-
-    <!-- Statistics Cards -->
-    <div class="row g-3 mb-4">
-
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm">
-                <div class="card-body">
-                    <h6 class="text-muted">Total Students</h6>
-                    <h2 class="fw-bold text-primary">
-                        {{ $students->count() }}
-                    </h2>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm">
-                <div class="card-body">
-                    <h6 class="text-muted">Student Records</h6>
-                    <h2 class="fw-bold text-success">
-                        {{ $students->count() }}
-                    </h2>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm">
-                <div class="card-body">
-                    <h6 class="text-muted">Management</h6>
-                    <h2 class="fw-bold text-dark">Active</h2>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
-
+<!-- All student List -->
        
-<div class="card border-0 shadow-sm">
+        <div class="card border-0 shadow-sm">
 
-    <div class="card-header bg-white py-3">
-        <h5 class="mb-0 fw-bold">All Students</h5>
-    </div>
-
-    <div class="card-body">
-
-        <!-- Search -->
-        <form action="{{ route('students.index') }}" method="GET"
-              class="mb-4">
-
-            <div class="input-group">
-                <input type="text"
-                       name="search"
-                       class="form-control"
-                       placeholder="Search name, email or phone..."
-                       value="{{ request('search') }}">
-
-                <button class="btn btn-primary">
-                    Search
-                </button>
-
-                <a href="{{ route('students.index') }}"
-                   class="btn btn-secondary">
-                    Reset
-                </a>
+            <div class="card-header bg-white py-3">
+                <h5 class="mb-0 fw-bold">All Students</h5>
             </div>
+
+            <div class="card-body">
+
+
+
+        <form action="{{ route('students.index') }}" method="GET" class="mb-4">
+
+            <div class="row g-2">
+
+                <!-- Search -->
+                <div class="col-md-4">
+                    <input type="text"
+                        name="search"
+                        class="form-control"
+                        placeholder="Search name, email or phone..."
+                        value="{{ request('search') }}">
+                </div>
+
+                <!-- Gender Filter -->
+                <div class="col-md-3">
+                    <select name="gender" class="form-select">
+                        <option value="">All Gender</option>
+                        <option value="Male" {{ request('gender') == 'Male' ? 'selected' : '' }}>Male</option>
+                        <option value="Female" {{ request('gender') == 'Female' ? 'selected' : '' }}>Female</option>
+                        <option value="Other" {{ request('gender') == 'Other' ? 'selected' : '' }}>Other</option>
+                    </select>
+                </div>
+
+                <!-- Status Filter -->
+                <div class="col-md-3">
+                    <select name="status" class="form-select">
+                        <option value="">All Status</option>
+                        <option value="Active" {{ request('status') == 'Active' ? 'selected' : '' }}>Active</option>
+                        <option value="Inactive" {{ request('status') == 'Inactive' ? 'selected' : '' }}>Inactive</option>
+                    </select>
+                </div>
+
+                <!-- Buttons -->
+                <div class="col-md-2 d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                        Filter
+                    </button>
+
+                    <a href="{{ route('students.index') }}"
+                    class="btn btn-secondary">
+                        Reset
+                    </a>
+                </div>
+
+            </div>
+
         </form>
+
 
                 <!-- Student Table -->
                 <div class="table-responsive">
@@ -193,6 +175,7 @@
 
             </div>
         </div>
+
 
 
 @endsection
